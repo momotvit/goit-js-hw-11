@@ -21,7 +21,7 @@ searchForm.addEventListener('submit', onSearchSubmit);
 loadMoreBtn.addEventListener('click', onLoadMoreClick);
 loadMoreBtn.style.display = "none";
 
-
+/// function for fetching images from the database
 async function fetchImages(searchQuery) {
     const response = axios.get(
         `${BASE_URL}/?key=${MY_PIXABAY_KEY}&q=${searchQuery}&${options}&page=${page}`
@@ -106,7 +106,7 @@ async function onLoadMoreClick() {
     }
 }
 
-
+////// Function for rendering the collection 
 
 function renderMarkup(images) { 
     const markup = images.map(image => {
@@ -133,6 +133,7 @@ function renderMarkup(images) {
     }).join("");
     return gallery.insertAdjacentHTML("beforeend", markup);
 }
+
 
 
 function clearMarkup() { 

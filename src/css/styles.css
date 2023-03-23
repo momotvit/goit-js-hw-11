@@ -7,7 +7,7 @@ body {
         Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #fafafa;
+    background-color: #eef4f1;
     color: #212121;
     line-height: 1.5;
     font-style: normal;
@@ -18,6 +18,8 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+
 
 a {
     text-decoration: none;
@@ -33,7 +35,7 @@ header {
     top: 0;
     z-index: 1;
     background-color: #254a67bf;
-    box-shadow: rgba(136, 157, 168, 0.8) 0 3px 8px -3px;
+    box-shadow: rgba(130, 167, 186, 0.8) 0 3px 8px -3px;
 }
 
 main {
@@ -53,10 +55,15 @@ input {
     margin-right: 10px;
 }
 
+input:hover,
+input:focus {
+    transform: scale(1.03);
+}
+
 button {
     text-transform: uppercase;
     border: 0;
-    background-color: #2196f3;
+    background-color: #1d394f;
     color: #ffffff;
     padding: 8px 10px;
     cursor: pointer;
@@ -69,20 +76,19 @@ button {
 
 button:hover,
 button:focus {
-    background-color: #188ce8;
+    background-color: #386992;
 }
 
-/*  */
+.btn__text {
+    color: aqua;
+}
+
+.btn__text:hover {
+    color: aquamarine;
+
+}
 
 .gallery {
-    /* display: grid;
-  max-width: 1140px;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  grid-auto-rows: 240px;
-  grid-gap: 12px;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto; */
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
@@ -97,6 +103,8 @@ button:focus {
     flex-direction: column;
 }
 
+
+
 .info {
     display: flex;
     justify-content: space-around;
@@ -104,12 +112,16 @@ button:focus {
     flex-grow: 1;
 }
 
+.gallery__item:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2),
+        0px 3px 3px 3px rgba(0, 0, 0, 0.14), 0px 4px 3px -3px rgba(0, 0, 0, 0.12);
+}
+
 .gallery__item {
-    /* display: flex;
-  justify-content: center;
-  align-items: center; */
+    border-radius: 4px;
     max-width: 100%;
-    /* position: relative; */
+    background-color: aliceblue;
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
         0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
 }
@@ -126,9 +138,6 @@ button:focus {
     }
 }
 
-.gallery__image:hover {
-    transform: scale(1.03);
-}
 
 .gallery__image {
     height: 300px;
