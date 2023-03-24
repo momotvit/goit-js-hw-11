@@ -8,7 +8,7 @@ import InfiniteScroll from 'infinite-scroll';
 const searchForm = document.querySelector('#search-form');
 const gallery = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more');
-
+let lightBox = refreshSimpleLightBox();
 
 const BASE_URL = 'https://pixabay.com/api/';
 const MY_PIXABAY_KEY = '34627829-d5e7f4f80e7fff5284f95e391';
@@ -67,7 +67,7 @@ async function onSearchSubmit(e) {
         }
   renderMarkup(res.data.hits);
     Notify.success(`Hooray! We found ${totalPage} images.`);
-    refreshSimpleLightBox();
+      lightBox;
     loadMoreBtn.style.display = 'inline-block';
     if (res.data.hits.length < 30) {
       onCollectionEnd();
@@ -84,11 +84,11 @@ async function onSearchSubmit(e) {
 
 async function onLoadMoreClick() { 
     incrementPage();
-
+    
     try {
         const result = await fetchImages(searchQuery);
         renderMarkup(result.data.hits);
-        refreshSimpleLightBox();
+     
         loadMoreBtn.style.display = "inline-block";
         onScroll();
 
@@ -109,6 +109,7 @@ async function onLoadMoreClick() {
 ////// Function for rendering the collection 
 
 function renderMarkup(images) { 
+ 
     const markup = images.map(image => {
         const { webformatURL,
             largeImageURL,
@@ -143,13 +144,13 @@ function clearMarkup() {
 
 
 function refreshSimpleLightBox() {
-  new SimpleLightbox('.gallery a', {
+ return new SimpleLightbox('.gallery a', {
     // captions: 'true',
     // captionsData: 'alt',
     captionDelay: 250,
     // nav: true,
     // navText: ['←','→'],
-  }).refresh();
+  });
 }
 
 
@@ -164,6 +165,7 @@ function onCollectionEnd() {
 
 
 function onScroll() {
+
   const { height: cardHeight} = document
     .querySelector('.gallery')
     .firstElementChild.getBoundingClientRect();
