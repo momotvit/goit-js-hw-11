@@ -9,7 +9,7 @@ const searchForm = document.querySelector('#search-form');
 const gallery = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more');
 let lightBox = refreshSimpleLightBox();
-
+ma
 const BASE_URL = 'https://pixabay.com/api/';
 const MY_PIXABAY_KEY = '34627829-d5e7f4f80e7fff5284f95e391';
 let page = 1;
@@ -67,7 +67,7 @@ async function onSearchSubmit(e) {
         }
   renderMarkup(res.data.hits);
     Notify.success(`Hooray! We found ${totalPage} images.`);
-      lightBox;
+     
     loadMoreBtn.style.display = 'inline-block';
     if (res.data.hits.length < 30) {
       onCollectionEnd();
@@ -84,7 +84,7 @@ async function onSearchSubmit(e) {
 
 async function onLoadMoreClick() { 
     incrementPage();
-    
+     lightBox.refresh();
     try {
         const result = await fetchImages(searchQuery);
         renderMarkup(result.data.hits);
